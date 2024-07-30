@@ -1,6 +1,6 @@
 ## Flex GPA Simulator
 
-This is a Chrome extension that allows you to predict your SGPA and CGPA by manipulating the Grades .
+This is a Chrome extension that allows you to predict your SGPA and CGPA by manipulating the Grades on the Flex Student Portal.
 
 ## Need
 
@@ -23,6 +23,8 @@ Follow this installation procedure to get started with the extension. The instal
 
 - Click on `Load unpacked` and select the unzipped folder.
 
+- Scroll a little down and enable the pin to toolbar option.
+
 ## Installation Video
 
 [![Installation Video](images/blackvideo.jpg)](https://youtu.be/ZtzXTtzA8EM)
@@ -40,6 +42,7 @@ Follow this installation procedure to get started with the extension. The instal
 - Click on Unlock to update your transcript again.
 
 ![](images/image2.png)
+
 ![](images/image.png)
 
 ## Disclaimer
