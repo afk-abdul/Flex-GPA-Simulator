@@ -6,14 +6,14 @@ function addDropdowns() {
   const gradePoints = {
     "A+": 4.0,
     A: 4.0,
-    "A-": 3.7,
-    "B+": 3.3,
+    "A-": 3.67,
+    "B+": 3.33,
     B: 3.0,
-    "B-": 2.7,
-    "C+": 2.3,
+    "B-": 2.67,
+    "C+": 2.33,
     C: 2.0,
-    "C-": 1.7,
-    "D+": 1.3,
+    "C-": 1.67,
+    "D+": 1.33,
     D: 1.0,
     F: 0.0,
   };
@@ -109,8 +109,8 @@ function getSemesterGradePoints() {
     semesters[semesterKey] = [];
 
     tbody.querySelectorAll("tr").forEach((row) => {
-      const pointsCell = row.cells[5]; // Assuming the 6th cell contains the points
-      const creditHoursCell = row.cells[3]; // Assuming the 4th cell contains the credit hours
+      const pointsCell = row.cells[5]; // 6th cell contains the points
+      const creditHoursCell = row.cells[3]; //4th cell contains the credit hours
       if (pointsCell && creditHoursCell) {
         const gradePoint = parseFloat(pointsCell.textContent.trim());
         const creditHours = parseFloat(creditHoursCell.textContent.trim());
@@ -144,7 +144,6 @@ function updatePoints(sIndex, rowIndex, newGradePoint) {
     );
   }
 
-  // Recalculate and update CGPA for all semesters
   const cgpaArray = [];
   let totalCreditHours = 0;
   let totalGradePoints = 0;
