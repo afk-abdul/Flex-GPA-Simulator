@@ -1,10 +1,13 @@
-# Status: Patched. No longer works.
+## Flex GPA Simulator
 
-The workaround has been patched by FlexStudent by implementing Cross-Origin Policy on their website. The extension shall no longer work. Thank you for your continued support throughout the time.
+This is a Chrome extension that allows you to predict your SGPA and CGPA by manipulating the Grades .
 
-## Flex Student Portal Insights
+## Need
 
-This is a Chrome extension that allows you to view hidden insights in your course page easily. This was developed with a quick solution in mind and gets the job done in the simplest way possible. Contributions and features welcome.
+As the finals approach most of us have a curiousity of guessing our grades in particular subject and what that predicted grade would
+result in in terms of SGPA .
+These predictions make us go to different GPA caluclators on the web and manually enter all the Courses , credit hours and ofcourse their grades
+which seems very annoying if we have to calculate the cgpa for more than one semesters.
 
 ## Installation Procedure
 
@@ -26,13 +29,18 @@ Follow this installation procedure to get started with the extension. The instal
 
 ## Usage
 
-- Visit your Marks page on FlexStudent Portal.
+- Visit your Transcript page on FlexStudent Portal.
 
-- You will start to see a "Get Insights" button on top of your course title.
+- Click on the Flex-Grade-Simulator from the extensions.
 
-- Click on the button to view the hidden insights.
+- Click on the Simulate Button to Show the DropDown menu on the Grades.
 
-![](images/usage.png)
+- Click on the Lock Button to remove the DropDown menu after you are done with all the selections .
+
+- Click on Unlock to update your transcript again.
+
+![](images/image2.png)
+![](images/image.png)
 
 ## Disclaimer
 
