@@ -35,7 +35,6 @@ function addDropdowns() {
 
       if (gradeCell && pointsCell) {
         const currentGrade = gradeCell.textContent.trim();
-        const gradePoint = pointsCell.textContent.trim();
 
         let select = gradeCell.querySelector("select");
 
@@ -53,7 +52,6 @@ function addDropdowns() {
           });
 
           select.addEventListener("change", () => {
-            gradeCell.textContent = select.options[select.selectedIndex].text;
             pointsCell.textContent = select.value;
             updatePoints(sIndex, index, parseFloat(select.value));
           });
@@ -101,6 +99,34 @@ function addDropdowns() {
   console.log("SGPA Array:", sgpaArray);
 }
 
+function toggleLock() {
+  const selects = document.querySelectorAll("tbody select");
+  const locked = selects.length > 0;
+
+  document.querySelectorAll("tbody").forEach((tbody, sIndex) => {
+    tbody.querySelectorAll("tr").forEach((row, index) => {
+      const gradeCell = row.cells[4];
+
+      if (gradeCell) {
+        if (locked) {
+          // If locked, remove the select and show the selected grade
+          const select = gradeCell.querySelector("select");
+          if (select) {
+            const selectedGrade = select.options[select.selectedIndex].text;
+            gradeCell.textContent = selectedGrade;
+          }
+        } else {
+          // Clear existing text content and re-add dropdowns
+          gradeCell.textContent = "";
+          addDropdowns();
+        }
+      }
+    });
+  });
+
+  return !locked;
+}
+
 function getSemesterGradePoints() {
   const semesters = {};
 
@@ -110,7 +136,7 @@ function getSemesterGradePoints() {
 
     tbody.querySelectorAll("tr").forEach((row) => {
       const pointsCell = row.cells[5]; // 6th cell contains the points
-      const creditHoursCell = row.cells[3]; //4th cell contains the credit hours
+      const creditHoursCell = row.cells[3]; // 4th cell contains the credit hours
       if (pointsCell && creditHoursCell) {
         const gradePoint = parseFloat(pointsCell.textContent.trim());
         const creditHours = parseFloat(creditHoursCell.textContent.trim());
@@ -193,5 +219,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "addDropdowns") {
     addDropdowns();
     sendResponse({ result: "Dropdowns added" });
+  } else if (request.action === "toggleLock") {
+    const locked = toggleLock();
+    sendResponse({ locked });
   }
 });

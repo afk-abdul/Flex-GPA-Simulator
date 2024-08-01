@@ -1,10 +1,11 @@
 {
     "manifest_version": 3,
-    "name": "Grade Simulator",
-    "version": "1.0",
-    "description": "Simulate your grades and calculate CGPA and SGPA.",
+    "name": "Flex Grade Simulator",
+    "version": "2.0",
+    "description": "Simulate your grades and calculate CGPA and SGPA in you Flex Student Portal.",
     "action": {
-      "default_popup": "popup.html"
+      "default_popup": "popup.html",
+      "default_icon": "icon.png"
     },
     "permissions": [
       "activeTab",
@@ -12,7 +13,7 @@
     ],
     "content_scripts": [
       {
-        "matches": ["<all_urls>"],
+        "matches": ["https://*.nu.edu.pk/*"],
         "js": ["content.js"]
       }
     ]
