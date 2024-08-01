@@ -41,7 +41,7 @@ Follow this installation procedure to get started with the extension. The instal
 
 - Visit your Transcript page on FlexStudent Portal.
 
-![](images/image.png)
+![](images/image2.png)
 
 - Click on the Flex-Grade-Simulator from the pinned extensions.
 
@@ -55,7 +55,7 @@ Follow this installation procedure to get started with the extension. The instal
 
 - Click on Simulate Grades to update your transcript again.
 
-![](images/image2.png)
+![](images/image.png)
 
 ## Improvement Courses
 
