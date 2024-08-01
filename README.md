@@ -25,9 +25,7 @@ Follow this installation procedure to get started with the extension. The instal
 
 - Scroll a little down and enable the pin to toolbar option.
 
-## Installation Video
 
-[![Installation Video](images/blackvideo.jpg)](https://youtu.be/ZtzXTtzA8EM)
 
 ## Usage
 
