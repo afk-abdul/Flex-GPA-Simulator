@@ -24,10 +24,12 @@ Follow this installation procedure to get started with the extension. The instal
 ![](images/developer.png)
 
 - Click on `Load unpacked` and select the unzipped folder.
-  ![](images/load.png)
+
+![](images/load.png)
 
 - Select the folder that you unzipped
-  ![](images/folder.png)
+
+![](images/folder.png)
 
 - Click on Details so that we can pin the extension .
 
@@ -38,15 +40,18 @@ Follow this installation procedure to get started with the extension. The instal
 ## Usage
 
 - Visit your Transcript page on FlexStudent Portal.
-  ![](images/image.png)
+
+![](images/image.png)
 
 - Click on the Flex-Grade-Simulator from the pinned extensions.
 
 - Click on the Simulate Button to Show the DropDown menu on the Grades.
-  ![](images/simulate.png)
+
+![](images/simulate.png)
 
 - Click on the Lock Button to remove the DropDown menu after you are done with all the selections .
-  ![](images/lock.png)
+
+![](images/lock.png)
 
 - Click on Simulate Grades to update your transcript again.
 
