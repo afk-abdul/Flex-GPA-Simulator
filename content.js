@@ -137,17 +137,23 @@ function getSemesterGradePoints() {
     tbody.querySelectorAll("tr").forEach((row) => {
       const pointsCell = row.cells[5]; // 6th cell contains the points
       const creditHoursCell = row.cells[3]; // 4th cell contains the credit hours
-      if (pointsCell && creditHoursCell) {
+      const gradeCell = row.cells[4]; // 5th cell contains the grade
+
+      if (pointsCell && creditHoursCell && gradeCell) {
         const gradePoint = parseFloat(pointsCell.textContent.trim());
         const creditHours = parseFloat(creditHoursCell.textContent.trim());
-        semesters[semesterKey].push({ gradePoint, creditHours });
+
+        // Get the current grade from the select if it exists
+        const select = gradeCell.querySelector("select");
+        const grade = select ? parseFloat(select.value) : gradePoint;
+
+        semesters[semesterKey].push({ gradePoint: grade, creditHours });
       }
     });
   });
 
   return semesters;
 }
-
 function updatePoints(sIndex, rowIndex, newGradePoint) {
   console.log(`Updating points for semester ${sIndex + 1}, row ${rowIndex}...`);
 
@@ -159,7 +165,7 @@ function updatePoints(sIndex, rowIndex, newGradePoint) {
 
   // Recalculate SGPA for the semester
   const sgpa = calculateSGPA(semesters[semesterKey]);
-  console.log(`Updated SGPA for semester ${sIndex + 1}: ${sgpa}`);
+  console.log(`Updated SGPA for semester ${sIndex + 1}: ${sgpa.toFixed(2)}`);
 
   // Update the SGPA in the DOM
   const sgpaElement = document.querySelector(`.semester-${sIndex + 1}`);
@@ -170,36 +176,51 @@ function updatePoints(sIndex, rowIndex, newGradePoint) {
     );
   }
 
-  const cgpaArray = [];
-  let totalCreditHours = 0;
-  let totalGradePoints = 0;
-  Object.keys(semesters).forEach((key, i) => {
-    const semester = semesters[key];
-    const semesterCreditHours = semester.reduce(
-      (acc, course) => acc + course.creditHours,
-      0
-    );
-    const semesterGradePoints = semester.reduce(
-      (acc, course) => acc + course.gradePoint * course.creditHours,
-      0
-    );
-    totalCreditHours += semesterCreditHours;
-    totalGradePoints += semesterGradePoints;
-    const cgpa = totalGradePoints / totalCreditHours;
-    cgpaArray.push(cgpa);
-  });
+  // Recalculate CGPA progressively
+  let totalSGPA = 0;
+  let totalSemesters = 0;
 
-  cgpaArray.forEach((cgpa, i) => {
-    const cgpaElement = document.querySelector(`.semester-${i + 1}`);
-    if (cgpaElement) {
-      cgpaElement.textContent = cgpaElement.textContent.replace(
-        /CGPA:\d+(\.\d+)?/,
-        `CGPA:${cgpa.toFixed(2)}`
-      );
+  for (let i = 0; i <= sIndex; i++) {
+    const sgpaElement = document.querySelector(`.semester-${i + 1}`);
+    if (sgpaElement) {
+      const sgpaMatch = sgpaElement.textContent.match(/SGPA:(\d+(\.\d+)?)/);
+      if (sgpaMatch) {
+        totalSGPA += parseFloat(sgpaMatch[1]);
+        totalSemesters++;
+      }
     }
-  });
+  }
 
-  console.log("CGPA Array after update:", cgpaArray);
+  const currentCGPA = totalSGPA / totalSemesters;
+
+  // Update the CGPA for the current semester
+  const cgpaElement = document.querySelector(`.semester-${sIndex + 1}`);
+  if (cgpaElement) {
+    cgpaElement.textContent = cgpaElement.textContent.replace(
+      /CGPA:\d+(\.\d+)?/,
+      `CGPA:${currentCGPA.toFixed(2)}`
+    );
+  }
+
+  // Update CGPA for subsequent semesters
+  for (let i = sIndex + 1; i < Object.keys(semesters).length; i++) {
+    const nextSGPAElement = document.querySelector(`.semester-${i + 1}`);
+    if (nextSGPAElement) {
+      const nextSGPAMatch =
+        nextSGPAElement.textContent.match(/SGPA:(\d+(\.\d+)?)/);
+      if (nextSGPAMatch) {
+        totalSGPA += parseFloat(nextSGPAMatch[1]);
+        totalSemesters++;
+        const nextCGPA = totalSGPA / totalSemesters;
+        nextSGPAElement.textContent = nextSGPAElement.textContent.replace(
+          /CGPA:\d+(\.\d+)?/,
+          `CGPA:${nextCGPA.toFixed(2)}`
+        );
+      }
+    }
+  }
+
+  console.log("CGPA Array after update:", totalSGPA / totalSemesters);
 }
 
 function calculateSGPA(semester) {
