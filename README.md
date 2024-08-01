@@ -21,27 +21,42 @@ Follow this installation procedure to get started with the extension. The instal
 
 - Enable developer mode.
 
+![](images/developer.png)
+
 - Click on `Load unpacked` and select the unzipped folder.
+  ![](images/load.png)
+
+- Select the folder that you unzipped
+  ![](images/folder.png)
+
+- Click on Details so that we can pin the extension .
 
 - Scroll a little down and enable the pin to toolbar option.
 
-
+![](images/pin.png)
 
 ## Usage
 
 - Visit your Transcript page on FlexStudent Portal.
+  ![](images/image.png)
 
-- Click on the Flex-Grade-Simulator from the extensions.
+- Click on the Flex-Grade-Simulator from the pinned extensions.
 
 - Click on the Simulate Button to Show the DropDown menu on the Grades.
+  ![](images/simulate.png)
 
 - Click on the Lock Button to remove the DropDown menu after you are done with all the selections .
+  ![](images/lock.png)
 
-- Click on Unlock to update your transcript again.
+- Click on Simulate Grades to update your transcript again.
 
 ![](images/image2.png)
 
-![](images/image.png)
+## Improvement Courses
+
+- In Order to calculate the SGPA and CGPA of the improvement Courses whose Grades are yet to be Uploaded .
+- Update the values of the previously earned grade of that improvement course as well .
+- This would give you the correct CGPA for that semester depending on your predicted grades.
 
 ## Disclaimer
 
