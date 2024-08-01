@@ -9,6 +9,32 @@ result in in terms of SGPA .
 These predictions make us go to different GPA caluclators on the web and manually enter all the Courses , credit hours and ofcourse their grades
 which seems very annoying if we have to calculate the cgpa for more than one semesters.
 
+## Usage
+
+- Visit your Transcript page on FlexStudent Portal.
+
+![](images/image2.png)
+
+- Click on the Flex-Grade-Simulator from the pinned extensions.
+
+- Click on the Simulate Button to Show the DropDown menu on the Grades.
+
+![](images/simulate.png)
+
+- Click on the Lock Button to remove the DropDown menu after you are done with all the selections .
+
+![](images/lock.png)
+
+- Click on Simulate Grades to update your transcript again.
+
+![](images/image.png)
+
+## Improvement Courses
+
+- In Order to calculate the SGPA and CGPA of the improvement Courses whose Grades are yet to be Uploaded .
+- Update the values of the previously earned grade of that improvement course as well .
+- This would give you the correct CGPA for that semester depending on your predicted grades.
+
 ## Installation Procedure
 
 Follow this installation procedure to get started with the extension. The installation is dependency free and only requires Chrome.
@@ -36,32 +62,6 @@ Follow this installation procedure to get started with the extension. The instal
 - Scroll a little down and enable the pin to toolbar option.
 
 ![](images/pin.png)
-
-## Usage
-
-- Visit your Transcript page on FlexStudent Portal.
-
-![](images/image2.png)
-
-- Click on the Flex-Grade-Simulator from the pinned extensions.
-
-- Click on the Simulate Button to Show the DropDown menu on the Grades.
-
-![](images/simulate.png)
-
-- Click on the Lock Button to remove the DropDown menu after you are done with all the selections .
-
-![](images/lock.png)
-
-- Click on Simulate Grades to update your transcript again.
-
-![](images/image.png)
-
-## Improvement Courses
-
-- In Order to calculate the SGPA and CGPA of the improvement Courses whose Grades are yet to be Uploaded .
-- Update the values of the previously earned grade of that improvement course as well .
-- This would give you the correct CGPA for that semester depending on your predicted grades.
 
 ## Disclaimer
 
